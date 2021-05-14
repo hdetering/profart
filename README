@@ -1,0 +1,32 @@
+author: Harald Detering
+email:  harald.detering@gmail.com
+
+This repository contains a modified version of ART (Illumina only!).
+The modified version uses coverage profiles to generate reads with a non-uniform coverage along each reference sequence.
+
+To run, enter:
+
+./art_illumina
+
+you will see in the help text the parameter:
+
+ -cp  --cvgProf  file containing the coverage profile (for uneven read sampling).
+
+which is not part of the original distribution.
+
+The profile can be provided by a FASTA-like file, containing for each sequence:
+1. a header line (sequence id must match ref seq id)
+2. a line containing the expected coverage at each position, delimited by '#'
+
+So, for example:
+
+>seq1
+5#5#5#10#10#10#100#100#100#
+
+would mean the first 3 positions in seq1 each would have a relative weight of 5 to be selected as starting positions for read pairs, the next 3 positions a weight of 10 and the last 3 have a relative weight of 100.
+
+In the code, the modified parts are highlighed by comments, marked with the letters "HD".
+The original, unmodified source files are kept in a copy with the suffix ".dist".
+
+
+For further help, refer to the original README files (README.art*) and the INSTALL file.
