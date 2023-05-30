@@ -1,12 +1,12 @@
 AUTOMAKE_OPTIONS = subdir-objects
 ACLOCAL_AMFLAGS = ${ACLOCAL_FLAGS}
 
-AM_CPPFLAGS = -O3
+AM_CPPFLAGS = -O3 -fPIE
 
 bin_PROGRAMS = art_illumina art_454 art_SOLiD
 
-art_illumina_SOURCES = art_illumina_src/art.h art_illumina_src/empdist.h art_illumina_src/readSeqFile.h art_illumina_src/seqRead.h art_illumina_src/samRead.h \
-		       art_illumina_src/art_illumina.cpp art_illumina_src/art_qual_scale.cpp art_illumina_src/empdist.cpp art_illumina_src/readSeqFile.cpp art_illumina_src/seqRead.cpp art_illumina_src/samRead.cpp
+art_illumina_SOURCES = art_illumina_src/art.h art_illumina_src/empdist.h art_illumnina_src/cvgdist.h art_illumina_src/readSeqFile.h art_illumina_src/seqRead.h art_illumina_src/samRead.h \
+		       art_illumina_src/art_illumina.cpp art_illumina_src/art_qual_scale.cpp art_illumina_src/empdist.cpp art_illumina_src/cvgdist.cpp art_illumina_src/readSeqFile.cpp art_illumina_src/seqRead.cpp art_illumina_src/samRead.cpp
 art_454_SOURCES = art_454_src/art.h art_454_src/read_profile.h art_454_src/readSeqFile.h art_454_src/seqRead.h art_454_src/samRead.h \
 		  art_454_src/art_454.cpp art_454_src/art.cpp art_454_src/read_profile.cpp art_454_src/readSeqFile.cpp art_454_src/seqRead.cpp  art_454_src/samRead.cpp
 

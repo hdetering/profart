@@ -121,6 +121,7 @@ art_SOLiD_LDADD = $(LDADD)
 am_art_illumina_OBJECTS = art_illumina_src/art_illumina.$(OBJEXT) \
 	art_illumina_src/art_qual_scale.$(OBJEXT) \
 	art_illumina_src/empdist.$(OBJEXT) \
+	art_illumina_src/cvgdist.$(OBJEXT) \
 	art_illumina_src/readSeqFile.$(OBJEXT) \
 	art_illumina_src/seqRead.$(OBJEXT) \
 	art_illumina_src/samRead.$(OBJEXT)
@@ -182,6 +183,7 @@ am__depfiles_remade = art_454_src/$(DEPDIR)/art.Po \
 	art_SOLiD_src/$(DEPDIR)/samRead.Po \
 	art_illumina_src/$(DEPDIR)/art_illumina.Po \
 	art_illumina_src/$(DEPDIR)/art_qual_scale.Po \
+	art_illumina_src/$(DEPDIR)/cvgdist.Po \
 	art_illumina_src/$(DEPDIR)/empdist.Po \
 	art_illumina_src/$(DEPDIR)/readSeqFile.Po \
 	art_illumina_src/$(DEPDIR)/samRead.Po \
@@ -359,9 +361,9 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = subdir-objects
 ACLOCAL_AMFLAGS = ${ACLOCAL_FLAGS}
-AM_CPPFLAGS = -O3
-art_illumina_SOURCES = art_illumina_src/art.h art_illumina_src/empdist.h art_illumina_src/readSeqFile.h art_illumina_src/seqRead.h art_illumina_src/samRead.h \
-		       art_illumina_src/art_illumina.cpp art_illumina_src/art_qual_scale.cpp art_illumina_src/empdist.cpp art_illumina_src/readSeqFile.cpp art_illumina_src/seqRead.cpp art_illumina_src/samRead.cpp
+AM_CPPFLAGS = -O3 -fPIE
+art_illumina_SOURCES = art_illumina_src/art.h art_illumina_src/empdist.h art_illumnina_src/cvgdist.h art_illumina_src/readSeqFile.h art_illumina_src/seqRead.h art_illumina_src/samRead.h \
+		       art_illumina_src/art_illumina.cpp art_illumina_src/art_qual_scale.cpp art_illumina_src/empdist.cpp art_illumina_src/cvgdist.cpp art_illumina_src/readSeqFile.cpp art_illumina_src/seqRead.cpp art_illumina_src/samRead.cpp
 
 art_454_SOURCES = art_454_src/art.h art_454_src/read_profile.h art_454_src/readSeqFile.h art_454_src/seqRead.h art_454_src/samRead.h \
 		  art_454_src/art_454.cpp art_454_src/art.cpp art_454_src/read_profile.cpp art_454_src/readSeqFile.cpp art_454_src/seqRead.cpp  art_454_src/samRead.cpp
@@ -521,6 +523,8 @@ art_illumina_src/art_qual_scale.$(OBJEXT):  \
 	art_illumina_src/$(DEPDIR)/$(am__dirstamp)
 art_illumina_src/empdist.$(OBJEXT): art_illumina_src/$(am__dirstamp) \
 	art_illumina_src/$(DEPDIR)/$(am__dirstamp)
+art_illumina_src/cvgdist.$(OBJEXT): art_illumina_src/$(am__dirstamp) \
+	art_illumina_src/$(DEPDIR)/$(am__dirstamp)
 art_illumina_src/readSeqFile.$(OBJEXT):  \
 	art_illumina_src/$(am__dirstamp) \
 	art_illumina_src/$(DEPDIR)/$(am__dirstamp)
@@ -590,6 +594,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@art_SOLiD_src/$(DEPDIR)/samRead.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@art_illumina_src/$(DEPDIR)/art_illumina.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@art_illumina_src/$(DEPDIR)/art_qual_scale.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@art_illumina_src/$(DEPDIR)/cvgdist.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@art_illumina_src/$(DEPDIR)/empdist.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@art_illumina_src/$(DEPDIR)/readSeqFile.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@art_illumina_src/$(DEPDIR)/samRead.Po@am__quote@ # am--include-marker
@@ -910,6 +915,7 @@ distclean: distclean-am
 	-rm -f art_SOLiD_src/$(DEPDIR)/samRead.Po
 	-rm -f art_illumina_src/$(DEPDIR)/art_illumina.Po
 	-rm -f art_illumina_src/$(DEPDIR)/art_qual_scale.Po
+	-rm -f art_illumina_src/$(DEPDIR)/cvgdist.Po
 	-rm -f art_illumina_src/$(DEPDIR)/empdist.Po
 	-rm -f art_illumina_src/$(DEPDIR)/readSeqFile.Po
 	-rm -f art_illumina_src/$(DEPDIR)/samRead.Po
@@ -974,6 +980,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f art_SOLiD_src/$(DEPDIR)/samRead.Po
 	-rm -f art_illumina_src/$(DEPDIR)/art_illumina.Po
 	-rm -f art_illumina_src/$(DEPDIR)/art_qual_scale.Po
+	-rm -f art_illumina_src/$(DEPDIR)/cvgdist.Po
 	-rm -f art_illumina_src/$(DEPDIR)/empdist.Po
 	-rm -f art_illumina_src/$(DEPDIR)/readSeqFile.Po
 	-rm -f art_illumina_src/$(DEPDIR)/samRead.Po
